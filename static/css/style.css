@@ -1,0 +1,381 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+	max-width: 100%;
+	
+	background: linear-gradient(to right, #2d1eff, #0b96e7,#0bcde7 );
+}
+/*login*/
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    padding: 0 2rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.login-content{
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	text-align: center;
+}
+
+.img img{
+	width: 500px;
+}
+
+form{
+	display: flex;
+	justify-content: space-around;
+	flex-direction: column;
+	background: #fff;
+	width: 700px;
+	height: 600px;
+	border-radius:5px;
+	box-shadow: 0 4px 16px #ccc;
+	padding: 25px;
+	margin: 15px;
+}
+
+.login-content img{
+    height: 100px;
+}
+
+.login-content h2{
+	margin: 15px 0;
+	color: #333;
+	text-transform: uppercase;
+	font-size: 2.9rem;
+}
+.login-content .input{
+	width: 70%;
+}
+
+.login-content .input-div{
+	position: relative;
+    grid-template-columns: 7% 93%;
+    margin: 25px 0;
+    padding: 5px 0;
+    border-bottom: 2px solid #d9d9d9;
+}
+
+.login-content .input-div.one{
+	margin-top: 0;
+}
+
+.i{
+	color: #d9d9d9;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.i i{
+	transition: .3s;
+}
+
+.input-div > div{
+    position: relative;
+	height: 45px;
+}
+
+.input-div > div > h5{
+	position: absolute;
+	left: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+	color: #999;
+	font-size: 15px;
+	transition: .3s;
+}
+
+.input-div:before, .input-div:after{
+	content: '';
+	position: absolute;
+	bottom: -2px;
+	width: 0%;
+	height: 2px;
+	background-color: #3854d3;
+	transition: .4s;
+}
+
+.input-div:before{
+	right: 50%;
+}
+
+.input-div:after{
+	left: 50%;
+}
+
+.input-div.focus:before, .input-div.focus:after{
+	width: 50%;
+}
+
+.input-div.focus > div > h5{
+	top: -5px;
+	font-size: 15px;
+}
+
+.input-div.focus > .i > i{
+	color: #3854d3;
+}
+
+.input-div > div > input{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	border: none;
+	outline: none;
+	background: none;
+	padding: 0.5rem 0.7rem;
+	font-size: 1.2rem;
+	color: #555;
+	font-family: 'poppins', sans-serif;
+}
+
+.input-div.pass{
+	margin-bottom: 4px;
+}
+
+a{
+	display: block;
+	text-decoration: none;
+	color: #999;
+	font-size: 0.9rem;
+	transition: .3s;
+}
+
+a:hover{
+	color: #3854d3;
+}
+.in_btn{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.btn{
+	display: block;
+	width: 70%;
+	height: 50px;
+	border-radius: 25px;
+	outline: none;
+	border: none;
+	background: #3854d3;;
+	background-size: 200%;
+	font-size: 1.2rem;
+	color: #fff;
+	font-family: 'Poppins', sans-serif;
+	text-transform: uppercase;
+	margin: 1rem 0;
+	cursor: pointer;
+	transition: .5s;
+}
+.btn:hover{
+	background-position: right;
+}
+.create{
+	text-align: center;
+}
+
+@media screen and (max-width: 1050px){
+	.container{
+		grid-gap: 5rem;
+	}
+}
+
+@media screen and (max-width: 1000px){
+	form{
+		width: 290px;
+	}
+
+	.login-content h2{
+        font-size: 2.4rem;
+        margin: 8px 0;
+	}
+
+	
+}
+
+@media screen and (max-width: 900px){
+	.container{
+		grid-template-columns: 1fr;
+	}
+
+	.img{
+		display: none;
+	}
+
+	.wave{
+		display: none;
+	}
+
+	.login-content{
+		justify-content: center;
+	}
+}
+.title{
+	padding-bottom: 25px;
+	color: #3854d3;
+}
+/*nav bar*/
+/* Global */
+:root {
+	--text-color: #170f49;
+	--background-color: #263343;
+	--accent-color: #c4c0c9;
+  }
+  
+  * {
+	/* Tells the browser to account for any border and 
+	padding in the values you specify for an element's 
+	width and height. */
+	box-sizing: border-box;
+  }
+  
+  
+  
+  
+  a {
+	text-decoration: none;
+	color: #000;
+	padding-left: 15px
+	
+  }
+  
+  /* Nav container */
+  .navbar {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	padding: 8px 12px;
+	background-color: #fff;
+	width: 100%;
+	height: 80px;
+	color: #170f49;
+	font-family: 'Poppins', sans-serif;
+  }
+  
+  /* Logo with text */
+  .navbar__logo {
+	font-size: 24px;
+	color: #170f49;
+	display: flex;
+	font-size: 50px;
+	justify-content: space-between;
+  }
+  
+  .navbar__logo i {
+	color: #170f49;
+  }
+  
+  /* Menu */
+  .navbar__menu {
+	display: flex;
+	padding-left: 0;
+	list-style: none;
+	font-family: 'Poppins', sans-serif;
+  }
+  
+  .navbar__menu li {
+	padding: 8px 12px;
+  }
+  
+  .navbar__menu li:hover {
+	background-color: #f0f0f0;
+	border-radius: 4px;
+  }
+  .navbar__icons {
+	list-style: none;
+	color: var(--text-color);
+	display: flex;
+	padding-left: 0;
+  }
+  
+  /* Icons */
+  .navbar__icons li {
+	padding: 8px 12px;
+  }
+  
+  /* Toggle button */
+  .navbar__toggleBtn {
+	display: none;
+	position: absolute;
+	right: 32px;
+	font-size: 24px;
+	color: var(--accent-color);
+  }
+  
+  /* For small screen */
+  @media screen and (max-width: 768px) {
+	/* Nav container */
+	.navbar {
+	  flex-direction: column;
+	  align-items: flex-start;
+	  padding: 8px 24px;
+	  font-family: popp;
+	}
+  
+	/* Menu */
+	.navbar__menu {
+	  display: none;
+	  flex-direction: column;
+	  text-align: center;
+	  width: 100%;
+	  color: #170f49;
+	}
+  
+	.navbar__menu a {
+	  /* Fill in an entire line so that user can click on any space */
+	  display: inline;
+	}
+  
+	/* Icons */
+	.navbar__icons {
+	  display: none;
+	  justify-content: center;
+	  width: 100%;
+	}
+  
+	/* Toggle button */
+	.navbar__toggleBtn {
+	  display: block;
+	}
+  
+	/* When toggle button is clicked - active state */
+	.navbar__menu.active,
+	.navbar__icons.active {
+	  display: flex;
+	}
+  }
+  .input_create{
+	  display: block;
+	
+  }
+.create-content{
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	text-align: center;
+}
+.input.input{
+	display: block;
+	margin: 0 auto;
+	width: 100%;
+	height: 35px;
+	border-radius: 8px;
+	
+	color: #555;
+	
+}
