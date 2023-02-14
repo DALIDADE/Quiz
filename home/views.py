@@ -5,17 +5,17 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import *
 from .forms import *
 
-def Create(request):
-    Sapak = Sapaklar.objects.all()
-    Fakulted = Fakultedlar.objects.all()
-    Topor = Toporlar.objects.all()
+# def Create(request):
+#     Sapak = Sapaklar.objects.all()
+#     Fakulted = Fakultedlar.objects.all()
+#     Topor = Toporlar.objects.all()
 
-    context = {
-    'Sapak':Sapak,
-    'Fakulted':Fakulted,
-    'Topor':Topor
-}
-    return render(request,'create.html',context)
+#     context = {
+#     'Sapak':Sapak,
+#     'Fakulted':Fakulted,
+#     'Topor':Topor
+# }
+#     return render(request,'create.html',context)
 
 
 

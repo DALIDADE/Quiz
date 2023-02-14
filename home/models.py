@@ -16,6 +16,7 @@ class Toparlar(models.Model):
     Topar = models.PositiveIntegerField()
 
 class TestMaglumatlary(models.Model):
+    Fakultedin_ady = models.ForeignKey(Fakultedlar, on_delete= models.CASCADE)
     Sapagyn_ady = models.ForeignKey(Sapaklar, on_delete = models.CASCADE)
     Testin_ady = models.CharField(max_length=255)
     Topar = models.ForeignKey(Toparlar, on_delete = models.CASCADE)
