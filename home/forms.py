@@ -6,9 +6,12 @@ class TestMaglumatlaryForm(forms.ModelForm):
         model = TestMaglumatlary
         fields = '__all__'
 
-
-
 class TestGosmakForm(forms.ModelForm):
     class Meta:
         model = TestGosmak
+        fields = '__all__'
+
+class TestUytgetmekForm(forms.ModelForm):
+    class Meta:
+        model = TestMaglumatlary
         fields = '__all__'

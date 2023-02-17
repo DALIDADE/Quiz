@@ -1,0 +1,20 @@
+<h1>Testuytgetmek</h1>
+
+
+
+</br>
+{% for taze in tazeler %}
+<table><tr>
+    
+<th>{{taze.Sapagyn_ady}}</th>
+<th>{{taze.Testin_ady}}</th>
+<th>
+    {{taze.Topar}}
+</th>
+<th>{{taze.Sorag_sany}}</th>
+<th>{{taze.Wagyt_limidi}}</th>
+<th> <a href="{% url 'uytget-page' taze.id %}"><button type="submit">Uytget</button></a></th>
+
+</tr>
+</table>
+{% endfor %}

@@ -1,0 +1,15 @@
+<h1>Duzedis</h1>
+{% for A2 in Maglumatlar2 %}
+<table><tr>
+    
+<th>{{A2.Sapagyn_ady}}</th>
+<th>{{A2.Testin_ady}}</th>
+
+    <th> <a href="{% url 'testuytgetmek-page' %}"> <button type="submit">Testuythgrtmek</button></a></th>
+    <th><a href="{% url 'statistika-page' %}"> <button type="submit">Statistika</button></a></th>
+    <th> <a href="{% url 'netijeler-page' %}"><button type="submit">Netijeler</button></a></th>
+    <th><a href="{% url 'tetpozmak-page' %}"><button type="submit">Testi pozmak</button></a></th>
+
+</tr>
+</table>
+{%endfor%}
