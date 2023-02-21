@@ -6,15 +6,14 @@
 
 body{
     font-family: 'Poppins', sans-serif;
-    overflow: auto;
+    overflow: hidden;
 	max-width: 100%;
 	background: linear-gradient(to right, #2d1eff,#1e62ff, #0b96e7,#0bcde7 );
 }
 
 .container{
-	margin-top: 40px;
     width: 100vw;
-    height: auto;
+    height: 100vh;
     padding: 0 2rem;
 	display: flex;
 	justify-content: center;
@@ -28,17 +27,13 @@ body{
 	text-align: center;
 }
 
-.img img{
-	width: 500px;
-}
-
 .main{
 	display: flex;
 	justify-content: space-around;
 	flex-direction: column;
 	background: #fff;
-	width: 900px;
-	height: 500px;
+	width: 700px;
+	height: 600px;
 	border-radius:5px;
 	box-shadow: 0 4px 16px #ccc;
 	padding: 25px;
@@ -47,6 +42,17 @@ body{
 
 .login-content img{
     height: 100px;
+}
+
+.i{
+	color: #d9d9d9;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.i i{
+	transition: .3s;
 }
 
 .login-content h2{
@@ -66,17 +72,6 @@ body{
 
 .login-content .input-div.one{
 	margin-top: 0;
-}
-
-.i{
-	color: #3854d3;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.i i{
-	transition: .3s;
 }
 
 .input-div > div{
@@ -144,27 +139,14 @@ body{
 	margin-bottom: 4px;
 }
 
-a{
-	display: block;
-	text-align: right;
-	text-decoration: none;
-	color: #999;
-	font-size: 0.9rem;
-	transition: .3s;
-}
-
-a:hover{
-	color: #3854d3;
-}
 .in_btn{
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
-
-.btn {
+button {
     display: block;
-    width: 400px;
+    width: 200px;
 	height: 50px;
     background: #3854d3;
     border-radius: 25px;
@@ -176,8 +158,6 @@ a:hover{
     transition: .5s ease all;
 	text-transform: uppercase;
 	cursor: pointer;
-	margin-top: 10px;
-
 }
 
 @media screen and (max-width: 1050px){
@@ -187,9 +167,10 @@ a:hover{
 }
 
 @media screen and (max-width: 1000px){
-	form{
-		width: auto;
+	.main{
+		width: 290px;
 	}
+
 	.login-content h2{
         font-size: 2.4rem;
         margin: 8px 0;
@@ -225,29 +206,55 @@ a:hover{
   * {
 	box-sizing: border-box;
   }
+.input.input{
+	display: block;
+	margin: 0 auto;
+	width: 100%;
+	height: 35px;
+	color: #555;
+	text-align: center;
+	
+}
+.input::placeholder {
+	text-align: center;
+}
+
+.input_select{
+	text-align: center;
+	display: block;
+	margin: 0 auto;
+	width: 70%;
+	height: 35px;
+	border: 2px solid #333;
+	border-radius: 8px;
+	color: #555;
+}
+
   
   
   
   
-  a {
+a {
 	text-decoration: none;
 	color: #000;
+	padding-left: 15px
 	
   }
   
+  /* Nav container */
   .navbar {
-	border-radius: 10px;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
 	padding: 8px 12px;
 	background-color: #fff;
 	width: 100%;
-	height: 100px;
-	color: #1a0b78;
+	height: 80px;
+	color: #170f49;
 	font-family: 'Poppins', sans-serif;
   }
   
+  /* Logo with text */
   .navbar__logo {
 	font-size: 24px;
 	color: #170f49;
@@ -266,11 +273,9 @@ a:hover{
 	padding-left: 0;
 	list-style: none;
 	font-family: 'Poppins', sans-serif;
-	right: 100px;
   }
   
   .navbar__menu li {
-	align-self: center;
 	padding: 8px 12px;
   }
   
@@ -278,11 +283,29 @@ a:hover{
 	background-color: #f0f0f0;
 	border-radius: 4px;
   }
+  .navbar__icons {
+	list-style: none;
+	color: var(--text-color);
+	display: flex;
+	padding-left: 0;
+  }
   
+  /* Icons */
+  .navbar__icons li {
+	padding: 8px 12px;
+  }
+  
+  /* Toggle button */
+  .navbar__toggleBtn {
+	display: none;
+	position: absolute;
+	right: 32px;
+	font-size: 24px;
+	color: var(--accent-color);
+  }
   
   /* For small screen */
   @media screen and (max-width: 768px) {
-	.main
 	/* Nav container */
 	.navbar {
 	  flex-direction: column;
@@ -293,7 +316,7 @@ a:hover{
   
 	/* Menu */
 	.navbar__menu {
-	  display: flex;
+	  display: none;
 	  flex-direction: column;
 	  text-align: center;
 	  width: 100%;
@@ -324,7 +347,6 @@ a:hover{
 	}
   }
   .input_create{
-	margin-top: 20px;
 	  display: block;
 	
   }
@@ -333,46 +355,4 @@ a:hover{
 	justify-content: flex-start;
 	align-items: center;
 	text-align: center;
-}
-.input.input{
-	display: block;
-	margin: 0 auto;
-	width: 100%;
-	height: 35px;
-	color: #555;
-	text-align: center;
-	
-}
-.input::placeholder {
-	text-align: center;
-}
-
-ul .input_select{
-	text-align: center;
-	margin: 0 auto;
-	width: 100%;
-	height: 35px;
-	border: none;
-	color: #555;
-}
-th{
-	margin-right: 20px;
-}
-.extra{
-	color: grey;
-}
-button:hover{
-	color: white;
-}
-.button{
-	overflow: hidden;
-	width: 120px;
-	height: 30px;
-}
-.second{
-	display: none;
-}
-.input_create p{
-	color:  #2d1eff;
-	text-transform: uppercase;
 }

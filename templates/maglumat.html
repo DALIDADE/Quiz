@@ -1,0 +1,97 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Portal</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+    <script src="main.js" defer></script>
+  </head>
+  <body>
+    <nav class="navbar">
+        <div class="navbar__logo">
+          <img src="img/logo.png" alt="logo" style="width:65px; display: block;">
+          <a href="#"  style="font-size: 30px; padding: 15px 15px">Quiz Test</a>
+        </div>
+        <ul class="navbar__menu">
+          <li><a href="esasy.html">Esasy sahypa</a></li>
+          <li><a href="information.html">Soraglar maglumaty</a></li>
+          <li><a href="create.html">Test goshmak</a></li>
+          <li>
+            <select style="height: 35px; border: none;width: auto;">
+            <option style="height: 350px;">Turkmen dili</option>
+            <option>Rus dili</option>
+            <option>Inlis dili</option>
+            </select>
+          </li>
+        </ul>
+      </nav> -->
+      {% load static %}
+      {% if request.user.is_authenticated %}
+      {% include 'header.html' %}
+      {% for A1 in Maglumatlar %}
+    <div class="container" style="height: auto;">
+      <div class="login-content">
+        <div class="main" style="height: auto;width: 900px;">
+          <h2 class="title" style="margin-bottom: 40px;">MUGALLYM BOLUMINE HOS GELDINIZ</h2>
+          <table>
+            <tr>
+              <th>T.B</th>
+              
+              <th>DERSIN ADY</th>
+              <th>TESTIN ADY</th>
+              <th>TESTI UYTGET</th>
+              <th>STATISTIKA</th>
+              <th>TESTI POZMAK</th>
+            </tr>
+            <tr class="extra">
+              <th>1</th>
+              <th>{{A1.Sapagyn_ady}}</th>
+              <th>{{A1.Testin_ady}}</th>
+              <th>
+                <a href="{% url 'testuytgetmek-page' 1 %}"><button 
+                    style="border:none; 
+                      height: 30px;
+                      padding: 5px; 
+                      background: rgba(0, 176, 0);
+                      border-radius: 5px;
+                      width: 130px;
+                      font-size: 0.7em;
+                      text-transform: uppercase;
+                      cursor: pointer;">TESTI UYTGETMEK</button></a>
+              </th>
+              <th>
+                <a href="{% url 'statistika-page' %}"><button 
+                    style="border:none; 
+                      height: 30px;
+                      padding: 5px; 
+                      background: rgba(0, 176, 0);
+                      border-radius: 5px;
+                      width: 130px;
+                      font-size: 0.7em;
+                      text-transform: uppercase;
+                      cursor: pointer;">STATISTIKANY GORMEK</button></a>
+              </th>
+              <th>
+              <a href="{% url 'tetpozmak-page' %}"><button 
+              style="border:none; 
+                height: 30px;
+                padding: 5px; 
+                background: rgba(174, 0, 0, 0.782);
+                border-radius: 5px;
+                width: 130px;
+                font-size: 0.7em;
+                text-transform: uppercase;
+                cursor: pointer;">POZMAK</button></a>
+              </th>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+{%endfor%}
+{% else %}
+{% include 'goLogin.html' %}
+{% endif %}

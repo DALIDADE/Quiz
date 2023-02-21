@@ -6,15 +6,16 @@
 
 body{
     font-family: 'Poppins', sans-serif;
-    overflow: auto;
+    overflow: hidden;
 	max-width: 100%;
-	background: linear-gradient(to right, #2d1eff,#1e62ff, #0b96e7,#0bcde7 );
+	
+	background: linear-gradient(to right, #2d1eff, #0b96e7,#0bcde7 );
 }
+/*login*/
 
 .container{
-	margin-top: 40px;
     width: 100vw;
-    height: auto;
+    height: 100vh;
     padding: 0 2rem;
 	display: flex;
 	justify-content: center;
@@ -32,13 +33,13 @@ body{
 	width: 500px;
 }
 
-.main{
+form{
 	display: flex;
 	justify-content: space-around;
 	flex-direction: column;
 	background: #fff;
-	width: 900px;
-	height: 500px;
+	width: 700px;
+	height: 600px;
 	border-radius:5px;
 	box-shadow: 0 4px 16px #ccc;
 	padding: 25px;
@@ -51,9 +52,12 @@ body{
 
 .login-content h2{
 	margin: 15px 0;
-	color:  #2d1eff;
+	color: #333;
 	text-transform: uppercase;
-
+	font-size: 2.9rem;
+}
+.login-content .input{
+	width: 70%;
 }
 
 .login-content .input-div{
@@ -69,7 +73,7 @@ body{
 }
 
 .i{
-	color: #3854d3;
+	color: #d9d9d9;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -146,7 +150,6 @@ body{
 
 a{
 	display: block;
-	text-align: right;
 	text-decoration: none;
 	color: #999;
 	font-size: 0.9rem;
@@ -162,22 +165,28 @@ a:hover{
 	align-items: center;
 }
 
-.btn {
-    display: block;
-    width: 400px;
+.btn{
+	display: block;
+	width: 70%;
 	height: 50px;
-    background: #3854d3;
-    border-radius: 25px;
-    padding: 5px 10px;
-    border: none;
-    color: #fff;
+	border-radius: 25px;
+	outline: none;
+	border: none;
+	background: #3854d3;;
+	background-size: 200%;
 	font-size: 1.2rem;
-    font-weight: 700;
-    transition: .5s ease all;
+	color: #fff;
+	font-family: 'Poppins', sans-serif;
 	text-transform: uppercase;
+	margin: 1rem 0;
 	cursor: pointer;
-	margin-top: 10px;
-
+	transition: .5s;
+}
+.btn:hover{
+	background-position: right;
+}
+.create{
+	text-align: center;
 }
 
 @media screen and (max-width: 1050px){
@@ -188,8 +197,9 @@ a:hover{
 
 @media screen and (max-width: 1000px){
 	form{
-		width: auto;
+		width: 290px;
 	}
+
 	.login-content h2{
         font-size: 2.4rem;
         margin: 8px 0;
@@ -215,7 +225,12 @@ a:hover{
 		justify-content: center;
 	}
 }
-
+.title{
+	padding-bottom: 25px;
+	color: #3854d3;
+}
+/*nav bar*/
+/* Global */
 :root {
 	--text-color: #170f49;
 	--background-color: #263343;
@@ -223,6 +238,9 @@ a:hover{
   }
   
   * {
+	/* Tells the browser to account for any border and 
+	padding in the values you specify for an element's 
+	width and height. */
 	box-sizing: border-box;
   }
   
@@ -232,22 +250,24 @@ a:hover{
   a {
 	text-decoration: none;
 	color: #000;
+	padding-left: 15px
 	
   }
   
+  /* Nav container */
   .navbar {
-	border-radius: 10px;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
 	padding: 8px 12px;
 	background-color: #fff;
 	width: 100%;
-	height: 100px;
-	color: #1a0b78;
+	height: 80px;
+	color: #170f49;
 	font-family: 'Poppins', sans-serif;
   }
   
+  /* Logo with text */
   .navbar__logo {
 	font-size: 24px;
 	color: #170f49;
@@ -266,11 +286,9 @@ a:hover{
 	padding-left: 0;
 	list-style: none;
 	font-family: 'Poppins', sans-serif;
-	right: 100px;
   }
   
   .navbar__menu li {
-	align-self: center;
 	padding: 8px 12px;
   }
   
@@ -278,11 +296,29 @@ a:hover{
 	background-color: #f0f0f0;
 	border-radius: 4px;
   }
+  .navbar__icons {
+	list-style: none;
+	color: var(--text-color);
+	display: flex;
+	padding-left: 0;
+  }
   
+  /* Icons */
+  .navbar__icons li {
+	padding: 8px 12px;
+  }
+  
+  /* Toggle button */
+  .navbar__toggleBtn {
+	display: none;
+	position: absolute;
+	right: 32px;
+	font-size: 24px;
+	color: var(--accent-color);
+  }
   
   /* For small screen */
   @media screen and (max-width: 768px) {
-	.main
 	/* Nav container */
 	.navbar {
 	  flex-direction: column;
@@ -293,7 +329,7 @@ a:hover{
   
 	/* Menu */
 	.navbar__menu {
-	  display: flex;
+	  display: none;
 	  flex-direction: column;
 	  text-align: center;
 	  width: 100%;
@@ -324,7 +360,6 @@ a:hover{
 	}
   }
   .input_create{
-	margin-top: 20px;
 	  display: block;
 	
   }
@@ -339,40 +374,32 @@ a:hover{
 	margin: 0 auto;
 	width: 100%;
 	height: 35px;
+	border-radius: 8px;
+	
 	color: #555;
-	text-align: center;
 	
 }
-.input::placeholder {
-	text-align: center;
-}
-
-ul .input_select{
-	text-align: center;
-	margin: 0 auto;
+.input_create select {
+	background: transparent;
+	border: 1px solid var(--color-dark-light);
+	padding: 1rem;
+	border-radius: 3px;
 	width: 100%;
-	height: 35px;
-	border: none;
-	color: #555;
-}
-th{
-	margin-right: 20px;
-}
-.extra{
-	color: grey;
-}
-button:hover{
-	color: white;
-}
-.button{
-	overflow: hidden;
-	width: 120px;
-	height: 30px;
-}
-.second{
-	display: none;
-}
-.input_create p{
-	color:  #2d1eff;
-	text-transform: uppercase;
-}
+	color: var(--color-light);
+	font-weight: 500;
+	outline: none;
+  }
+  .input_create select {
+	color: var(--color-gray);
+	font-weight: 400;
+  }
+  .input_create select option {
+	background-color: var(--color-dark-light);
+	color: var(--color-light);
+	padding: 0 10rem;
+  }
+  .input_create label {
+	display: block;
+	font-size: 1.5rem;
+	margin-bottom: 1rem;
+  }

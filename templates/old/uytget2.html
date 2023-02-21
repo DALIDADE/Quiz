@@ -1,0 +1,22 @@
+<form method="POST">
+    {% csrf_token %}
+    
+<div class="input-div one">
+    <div class="i">
+            <i class="fas fa-user"></i>
+    </div>
+    <div class="div">
+  
+ 
+            <input type="text" id="username" name="w1" required value="{{testler.Soragy}}">
+            <input type="text" id="username" name="w2" required value="{{testler.a}}">
+            <input type="text" id="username" name="w3" required value="{{testler.b}}">
+            <input type="text" id="username" name="w4" required value="{{testler.c}}">
+            <input type="text" id="username" name="w5" required value="{{testler.d}}">
+    </div>
+ </div>
+ 
+<button type="submit"><a href="{% url 'uytget-page' testler.id %}">Yatda sakla</a></button>
+<a href="#">Testi duzet</a>
+
+</form>

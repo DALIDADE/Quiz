@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quiz Portal</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	
+	<div class="container">
+		
+		<div class="login-content">
+			<form  method="POST">
+				{% csrf_token %}
+				
+				<h3 class="title">Quiz Portala Hosh Geldiniz</h3>
+				<img src="{% static 'img/avatar.svg' %}">
+				
+           		<div class="input-div one">
+           		   <div class="i">
+           		   		<i class="fas fa-user"></i>
+           		   </div>
+           		   <div class="div">
+					
+           		
+           		   		<input type="text" id="username" name="username" placeholder="ID" required>
+           		   </div>
+           		</div>
+           		<div class="input-div pass">
+           		   <div class="i"> 
+           		    	<i class="fas fa-lock"></i>
+           		   </div>
+           		   <div class="div">
+           		   
+           		    	<input type="password" id="password" name="password" placeholder="Password" required>
+            	   </div>
+            	</div>
+				<div class="in_btn">
+            	<input type="submit" class="btn" value="Girmek">
+				</div>
+                <div class="create"><a href="'create'">create?</a></div>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

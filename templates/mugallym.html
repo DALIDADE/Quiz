@@ -1,18 +1,63 @@
-<h2>Mugallym sahypasy</h2>
-<h1>Hello {{user}}</h1>
-</br>
-{% for A1 in Maglumatlar %}
-<table><tr>
-    
-<th>{{A1.Sapagyn_ady}}</th>
-<th>{{A1.Testin_ady}}</th>
-<th>
-    {{A1.Topar}}
-</th>
-<th>{{A1.Sorag_sany}}</th>
-<th>{{A1.Wagyt_limidi}}</th>
-<th> <a href="#"><button type="submit">Passiw</button></a></th>
+{% load static %}
 
-</tr>
-</table>
+{% if request.user.is_authenticated %}
+ {% include 'header.html' %}
+ <body>
+  {% for A1 in Maglumatlar %}
+    <div class="container" style="height: auto;">
+      <div class="login-content">
+        <div class="main" style="height: auto;width: 900px;">
+          <h2 class="title" style="margin-bottom: 40px;">MUGALLYM BOLUMINE HOS GELDINIZ</h2>
+          <table>
+            <tr>
+              <th>T.B</th>
+              <th>DERSIN ADY</th>
+              <th>TESTIN ADY</th>
+              <th>TOPAR NOMERI</th>
+              <th>SORAG SANY</th>
+              <th>WAGT MOCBERI</th>
+              <th>YAGDAYY</th>
+            </tr>
+            
+            <tr class="extra">
+              <th>{{A1.id}}</th>
+              <th>{{A1.Sapagyn_ady}}</th>
+              <th>{{A1.Testin_ady}}</th>
+              <th>{{A1.Topar}}</th>
+              <th>{{A1.Sorag_sany}}</th>
+              <th>{{A1.Wagyt_limidi}} MIN</th>
+              <th class="button">
+                <button class="first"
+              style="border:none; 
+              height: 30px;
+              padding: 5px; 
+              background: rgba(0, 176, 0);
+              border-radius: 5px;
+              width: 120px;
+              font-size: 0.9em;
+              text-transform: uppercase;
+              cursor: pointer;">AKTIW ETMEK
+              </button>
+              <button class="second"
+              style="border:none; 
+              height: 30px;
+              padding: 5px; 
+              background: rgba(174, 0, 0, 0.782);
+              border-radius: 5px;
+              width: 120px;
+              font-size: 0.9em;
+              text-transform: uppercase;
+              cursor: pointer;">PASSIW ETMEK
+              </button>
+              </th>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
 {%endfor%}
+{% else %}
+{% include 'goLogin.html' %}
+{% endif %}

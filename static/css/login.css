@@ -5,16 +5,16 @@
 }
 
 body{
+	background-color: #000;
     font-family: 'Poppins', sans-serif;
-    overflow: auto;
+    overflow: hidden;
 	max-width: 100%;
 	background: linear-gradient(to right, #2d1eff,#1e62ff, #0b96e7,#0bcde7 );
 }
 
 .container{
-	margin-top: 40px;
     width: 100vw;
-    height: auto;
+    height: 100vh;
     padding: 0 2rem;
 	display: flex;
 	justify-content: center;
@@ -28,17 +28,13 @@ body{
 	text-align: center;
 }
 
-.img img{
-	width: 500px;
-}
-
 .main{
 	display: flex;
 	justify-content: space-around;
 	flex-direction: column;
 	background: #fff;
-	width: 900px;
-	height: 500px;
+	width: 700px;
+	height: 600px;
 	border-radius:5px;
 	box-shadow: 0 4px 16px #ccc;
 	padding: 25px;
@@ -69,7 +65,7 @@ body{
 }
 
 .i{
-	color: #3854d3;
+	color: #d9d9d9;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -144,27 +140,9 @@ body{
 	margin-bottom: 4px;
 }
 
-a{
-	display: block;
-	text-align: right;
-	text-decoration: none;
-	color: #999;
-	font-size: 0.9rem;
-	transition: .3s;
-}
-
-a:hover{
-	color: #3854d3;
-}
-.in_btn{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.btn {
+button {
     display: block;
-    width: 400px;
+    width: 650px;
 	height: 50px;
     background: #3854d3;
     border-radius: 25px;
@@ -176,8 +154,6 @@ a:hover{
     transition: .5s ease all;
 	text-transform: uppercase;
 	cursor: pointer;
-	margin-top: 10px;
-
 }
 
 @media screen and (max-width: 1050px){
@@ -188,8 +164,9 @@ a:hover{
 
 @media screen and (max-width: 1000px){
 	form{
-		width: auto;
+		width: 290px;
 	}
+
 	.login-content h2{
         font-size: 2.4rem;
         margin: 8px 0;
@@ -232,108 +209,10 @@ a:hover{
   a {
 	text-decoration: none;
 	color: #000;
+	padding-left: 15px
 	
   }
-  
-  .navbar {
-	border-radius: 10px;
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-	padding: 8px 12px;
-	background-color: #fff;
-	width: 100%;
-	height: 100px;
-	color: #1a0b78;
-	font-family: 'Poppins', sans-serif;
-  }
-  
-  .navbar__logo {
-	font-size: 24px;
-	color: #170f49;
-	display: flex;
-	font-size: 50px;
-	justify-content: space-between;
-  }
-  
-  .navbar__logo i {
-	color: #170f49;
-  }
-  
-  /* Menu */
-  .navbar__menu {
-	display: flex;
-	padding-left: 0;
-	list-style: none;
-	font-family: 'Poppins', sans-serif;
-	right: 100px;
-  }
-  
-  .navbar__menu li {
-	align-self: center;
-	padding: 8px 12px;
-  }
-  
-  .navbar__menu li:hover {
-	background-color: #f0f0f0;
-	border-radius: 4px;
-  }
-  
-  
-  /* For small screen */
-  @media screen and (max-width: 768px) {
-	.main
-	/* Nav container */
-	.navbar {
-	  flex-direction: column;
-	  align-items: flex-start;
-	  padding: 8px 24px;
-	  font-family: popp;
-	}
-  
-	/* Menu */
-	.navbar__menu {
-	  display: flex;
-	  flex-direction: column;
-	  text-align: center;
-	  width: 100%;
-	  color: #170f49;
-	}
-  
-	.navbar__menu a {
-	  /* Fill in an entire line so that user can click on any space */
-	  display: inline;
-	}
-  
-	/* Icons */
-	.navbar__icons {
-	  display: none;
-	  justify-content: center;
-	  width: 100%;
-	}
-  
-	/* Toggle button */
-	.navbar__toggleBtn {
-	  display: block;
-	}
-  
-	/* When toggle button is clicked - active state */
-	.navbar__menu.active,
-	.navbar__icons.active {
-	  display: flex;
-	}
-  }
-  .input_create{
-	margin-top: 20px;
-	  display: block;
-	
-  }
-.create-content{
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-	text-align: center;
-}
+
 .input.input{
 	display: block;
 	margin: 0 auto;
@@ -345,34 +224,4 @@ a:hover{
 }
 .input::placeholder {
 	text-align: center;
-}
-
-ul .input_select{
-	text-align: center;
-	margin: 0 auto;
-	width: 100%;
-	height: 35px;
-	border: none;
-	color: #555;
-}
-th{
-	margin-right: 20px;
-}
-.extra{
-	color: grey;
-}
-button:hover{
-	color: white;
-}
-.button{
-	overflow: hidden;
-	width: 120px;
-	height: 30px;
-}
-.second{
-	display: none;
-}
-.input_create p{
-	color:  #2d1eff;
-	text-transform: uppercase;
 }

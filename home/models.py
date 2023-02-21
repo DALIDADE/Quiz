@@ -22,11 +22,11 @@ class TestMaglumatlary(models.Model):
         return self.Testin_ady
 
 class TestGosmak(models.Model):
+    property = models.ForeignKey(TestMaglumatlary,on_delete=models.CASCADE)
     Soragy = models.TextField()
     a = models.CharField(max_length=100)
     b = models.CharField(max_length=100)
     c = models.CharField(max_length=100)
-    d= models.CharField(max_length=100)
 
 
 

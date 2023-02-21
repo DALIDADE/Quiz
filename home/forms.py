@@ -10,8 +10,3 @@ class TestGosmakForm(forms.ModelForm):
     class Meta:
         model = TestGosmak
         fields = '__all__'
-
-class TestUytgetmekForm(forms.ModelForm):
-    class Meta:
-        model = TestMaglumatlary
-        fields = '__all__'

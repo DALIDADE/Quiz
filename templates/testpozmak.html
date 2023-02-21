@@ -1,1 +1,48 @@
-<h1>Testpozmak</h1>
+{% load static %}
+{% if request.user.is_authenticated %}
+   {% include 'header.html' %}
+   <body>
+    <div class="container" style="height: auto;">
+      <div class="login-content">
+        <div class="main" style="height: auto;width: 900px;">
+          <h2 class="title" style="margin-bottom: 40px;">MUGALLYM BOLUMINE HOS GELDINIZ</h2>
+          <table>
+            <tr>
+              <th>T.B</th>
+              <th>FAKULTETIN ADY</th>
+              <th>DERSIN ADY</th>
+              <th>SORAG SANY</th>
+              <th>TOPAR NOMERI</th>
+              <th>WAGT MOCBERI</th>
+              <th>YAGDAYY</th>
+            </tr>
+            <tr class="extra">
+              <th>1</th>
+              <th>COMPUTER TEHNOLOGIES</th>
+              <th>PROGRAMMING</th>
+              <th>8</th>
+              <th>5711</th>
+              <th>45 MIN</th>
+              <th>
+              <button 
+              style="border:none; 
+              height: 30px;
+              padding: 5px; 
+              background: rgba(174, 0, 0, 0.782);
+              border-radius: 5px;
+              width: 120px;
+              font-size: 0.9em;
+              text-transform: uppercase;
+              cursor: pointer;">POZMAK
+              </button>
+              </th>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+{% else %}
+{% include 'goLogin.html' %}
+{% endif %}
