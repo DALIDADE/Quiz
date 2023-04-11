@@ -1,0 +1,54 @@
+
+{% if request.user.is_authenticated %}
+      {% load static %}
+      {% include 'header2.html' %}
+    <div class="box">
+      <div class="container" class="con1" id="con1">
+        <h2>soraglar bolumi</h2>
+       
+        {% for i in Maglumatlar %}
+        <form method="GET" action="{% url 'test-page' i.id%}">
+          {% csrf_token %}
+        <table style="width: 90%;margin: 0px 5% 0px 5%;">
+          <tbody>
+            <tr>
+              <th>t.n</th>
+              <th>sapagyň ady</th>
+              <th>soragyň ady</th>
+              <th>sorag sany</th>
+              <th>wagt limiti</th>
+              <th>topar</th>
+              <th>knopka</th>
+            </tr>
+            <tr class="extra">
+              <th>{{i.id}}</th>
+              <th>{{i.Sapagyn_ady}}</th>
+              <th>{{i.Testin_ady}}</th>
+              <th>{{i.Sorag_sany}}</th>
+              <th>{{i.Wagyt_limidi}}</th>
+              <th>{{i.Topar}}</th>
+              <th><button class="knopka"><b>gir</b></button></th>
+            </tr>
+          </form>
+          </tbody>
+        </table>
+        {% endfor %}
+      </div>
+  
+      <div class="container" class="con3" style="display: none;" id="con3">
+        <h2>kitaphana</h2>
+        <h2>kitaplar</h2>
+        <a href="{% static 'img/Ahlersten K.  - Microeconomics - Exercises - with Suggested Solutions (2008).pdf' %}">
+        <button disabled="disabled" class="disabled" style="background-color: white; color: #164a9ec4;">
+          <img src="{% static 'img/micro.png' %}" alt="png" title="Ahlersten K.  - Microeconomics - Exercises - with Suggested Solutions (2008)">
+          <p>Ahlersten K.  - Microeconomics - Exercises - with Suggested Solutions (2008)</p>
+        </button>
+      </a>
+      </div>
+    </div>
+  <script src="{% static  'js/page.js' %}"></script>
+</body>
+</html>
+{% else %}
+{% include 'goLogin.html' %}
+{% endif %}

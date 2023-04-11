@@ -16,19 +16,19 @@
       <img src="{% static 'img/logo.png' %}" alt="logo" style="width:65px; display: block;">
       <a href="#"  style="font-size: 30px; padding: 15px 15px">Quiz Test</a>
     </div>
-    
+ 
     <ul class="navbar__menu">
-      <li><a href="{% url 'mugallym-page' %}">Esasy sahypa</a></li>
-      <li><a href="{% url 'maglumat-page' %}">Soraglar maglumaty</a></li>
-      <li><a href="{% url 'testmaglumatlary-page' %}">Test goshmak</a></li>
-      <li><a href="{% url 'logout-page' %}">LOGOUT</a></li>
-
-        <select style="height: 35px; border: none;width: auto;">
-        <option style="height: 350px;">Turkmen dili</option>
-        <option>Rus dili</option>
-        <option>Inlis dili</option>
-        </select>
+      <li><a href="{% url 'mugallym-page' user.id %}">Esasy sahypa</a></li>
+      <li><a href="{% url 'maglumat-page' user.id %}">Soraglar maglumaty</a></li>
+      <li><a href="{% url 'testmaglumatlary-page' user.id %}">Test goshmak</a></li>
+      <li><a href="{% url 'logout-page'%}">LOGOUT</a></li>
+      <li>
+     
       </li>
+
+  
+   
+      </form>
     </ul>
   </nav>
  

@@ -1,53 +1,44 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,HttpResponse
 from django.contrib.auth import authenticate,login,logout
-from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
+from student.models import Netijeler
 from .models import *
 from .forms import *
-from django.contrib.auth.decorators import login_required
 
-# def Create(request):
-#     Sapak = Sapaklar.objects.all()
-#     Fakulted = Fakultedlar.objects.all()
-#     Topor = Toporlar.objects.all()
 
-#     context = {
-#     'Sapak':Sapak,
-#     'Fakulted':Fakulted,
-#     'Topor':Topor
-# }
-#     return render(request,'create.html',context)
+
+
+
+
 
 def Login(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
-     
-        # try:
-        #     user = User.objects.get(request,username=username,password=password)
-        
-        # except:
-        #     messages.error(request, 'User girizilmedi')
+        try:
+            user = User.objects.get(request,username=username,password=password)
+        except:
+            messages.error(request, 'User girizilmedi')
         user = authenticate(request, username=username, password=password)
-        print('Birinji')
         if user is not None:
             login(request, user)
-            print('IF')
-            return redirect ('mugallym-page')
-            
-    
+            if len(username) == 6:
+                return redirect('homestudent-page',id=user.id)
+            else:
+                return redirect ('mugallym-page',id=user.id)
         else:
             return redirect('login-page')
-            
-            
-            
-        
     return render(request,'login.html')
 
-def Mugallym(request):
-    Sapak = Sapaklar.objects.all()
-    # Topar = Toparlar.objects.all()
-    Maglumatlar = TestMaglumatlary.objects.all()
+
+
+
+@login_required(login_url='')
+def Mugallym(request,id):
+    user = User.objects.get(id=request.user.id)
+    Maglumatlar = TestMaglumatlary.objects.filter(user=user)
     context = {
         'Maglumatlar':Maglumatlar,
     }
@@ -55,24 +46,31 @@ def Mugallym(request):
 
 
 
-# def DuzedisView(request):
-#     Maglumatlar2 = TestMaglumatlary.objects.all()
-#     context = {
-#         'Maglumatlar2':Maglumatlar2
-#     }
-#     return render (request,'duzedis.html', context)
+
+
+def MaglumatView(request,id):
+    user = User.objects.get(id=request.user.id)
+    Maglumatlar = TestMaglumatlary.objects.filter(user=request.user)
+    context = {
+        'Maglumatlar':Maglumatlar,
+    }
+    return render(request,'maglumat.html',context)
 
 
 
 
-
-def TestMaglumatlaryView(request):
+@login_required(login_url='')
+def TestMaglumatlaryView(request,id):
+    user = User.objects.get(id=request.user.id)
     form = TestMaglumatlaryForm()
     if request.method == "POST":
+        user = request.user
         form = TestMaglumatlaryForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('testgosmak-page')
+            order = form.save(commit=False)
+            order.user = request.user
+            order.save()
+            return redirect('testgosmak-page',at=order.Testin_ady,pk=order.Sorag_sany,id=user.id)
     context = {
         'form' :form,
     }
@@ -82,77 +80,107 @@ def TestMaglumatlaryView(request):
 
 
 
-def TestGosmakView(request):
+
+
+
+
+@login_required(login_url='')
+def TestGosmakView(request,at,pk,id):
+    property1=TestMaglumatlary.objects.get(Testin_ady=at)
     form = TestGosmakForm()
-    if request.method == "POST":
-        form = TestGosmakForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('testgosmak-page')
+    if pk>0:
+        if request.method == "POST":
+            form = TestGosmakForm(request.POST)
+            if form.is_valid():
+                comment = form.save(commit=False)
+                comment.property = property1
+                comment.save()
+                pk=pk-1
+                return redirect('testgosmak-page',at=property1,pk=pk,id=id)
+    else:
+        return redirect('mugallym-page',id=id)
     context = {
-        'form':form
+        'pk':pk,
+        'id':id,
+        'property1':property1,
+        'form':form,
     }
     return render (request,'testgosmak.html',context)
 
 
-# def Testuytgetmek(request):
-#     tazeler = TestMaglumatlary.objects.all()
 
-#     context = {
-#         'tazeler':tazeler
-#     }
-#     return render (request,'testuytgetmek.html',context)
 
-def UytgetView(request,id):
-    duzedisler = TestMaglumatlary.objects.get(id=id)
-    if request.method == 'POST':
-        duzedisler.Sapagyn_ady=Sapaklar.objects.get(Sapagyn_ady=request.POST['u1'])
-        duzedisler.Testin_ady=request.POST['u2']
-        duzedisler.Topar=Toparlar.objects.get(Topar=request.POST['u3'])
-        duzedisler.Sorag_sany=request.POST['u4']
-        duzedisler.Wagyt_limidi=request.POST['u5']
-        
-        duzedisler.save()
-        print('boldy')
-    context = {
-        'duzedisler':duzedisler
-    }
-    return render(request,'uytget.html',context)
 
+
+@login_required(login_url='')
 def TestUytgetmekView(request,id):
-    testler = TestGosmak.objects.get(id=id)
-    if request.method=='POST':
-        testler.Soragy = request.POST['w1']
-        testler.a = request.POST['w2']
-        testler.b = request.POST['w3']
-        testler.c = request.POST['w4']
-        testler.d = request.POST['w5']
-        testler.save()
-
-        print('Yatda sakladym')
+    testler = TestGosmak.objects.filter(property=id)
     context = {
         'testler':testler
     }
     return render (request,'testuytgetmek.html',context)
 
+
+
+
+
+@login_required(login_url='')
+def TestUytgetmek2View(request,at):
+    testler = TestGosmak.objects.filter(Soragy=at)
+    context = {
+        'testler':testler
+    }
+    if request.method == 'POST':
+        testler = TestGosmak.objects.filter(Soragy=at)
+        for i in testler:
+            i.Soragy = request.POST['w1']
+            i.a = request.POST['w2']
+            i.b = request.POST['w3']
+            i.c = request.POST['w4']
+            i.save()
+            return redirect('maglumat-page' ,request.user.id)
+    return render (request,'testuytgetmek2.html',context)
+
+
+
+@login_required(login_url='')
+def StatistikaView(request,at):
+    Netije = Netijeler.objects.filter(Testin_ady=at)
+    print(Netije)
+    context = {
+        'Netije':Netije
+    }
+    return render (request,'statistika.html',context)
+
+
+
+
+@login_required(login_url='')
+def TestPozmakView(request,id):
+    user = User.objects.get(id=request.user.id)
+    Maglumatlar = TestMaglumatlary.objects.filter(id=id)
+    if request.method == 'POST':
+        Maglumatlar.delete()
+        return redirect('maglumat-page' ,user.id)
+    context = {
+        'Maglumatlar':Maglumatlar
+    }
+    return render(request,'testpozmak.html',context )
+
+
+
+
+
+
+
+@login_required(login_url='')
 def Logout(request):
     logout(request)
-    return redirect('mugallym-page')
-
-def StatistikaView(request):
-    return render (request,'statistika.html')
+    return redirect('login-page')
 
 
-def TestPozmakView(request):
-    return render(request,'testpozmak.html')
 
-def MaglumatView(request):
-    Maglumatlar = TestMaglumatlary.objects.all()
-    context = {
-        'Maglumatlar':Maglumatlar,
-    }
-    return render(request,'maglumat.html',context)
 
-    
+
 
 

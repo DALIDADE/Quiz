@@ -5,25 +5,33 @@
     <div class="container" style="height: auto;">
       <div class="login-content">
         <div class="main" style="height: auto;width: 900px;">
-          <h2 class="title" style="margin-bottom: 40px;">MUGALLYM BOLUMINE HOS GELDINIZ</h2>
+          <h2 class="title" style="margin-bottom: 40px;">STATISTIKA BOLUMINE HOS GELDINIZ</h2>
+          {% for i in Netije %}
           <table>
             <tr>
               <th>T.B</th>
               <th>DERSIN ADY</th>
+              <th>TESTIN ADY</th>
+              <th>TOPARY</th>
+              <th>TALYP</th>
               <th>SORAG SANY</th>
               <th>DOGRY JOGAPLARYN SANY</th>
               <th>YALNYS JOGAPLARYN SANY</th>
-              <th>DOGRY JOGAPLARYN GOTERIMI</th>
+              <th>BALY</th>
             </tr>
             <tr class="extra">
-              <th>1</th>
-              <th>PROGRAMMING</th>
-              <th>8</th>
-              <th>7</th>
-              <th>1</th>
-              <th>100%</th>
+              <th>{{i.id}}</th>
+              <th>{{i.Dersin_ady}}</th>
+              <th>{{i.Testin_ady}}</th>
+              <th>{{i.Topar}}</th>
+              <th>{{i.user}}</th>
+              <th>{{i.Sorag_sany}}</th>
+              <th>{{i.Dogry_sany}}</th>
+              <th>{{i.Yalnys_sany}}</th>
+              <th>{{i.Bahasy}}</th>
             </tr>
           </table>
+          {% endfor %}
         </div>
       </div>
     </div>

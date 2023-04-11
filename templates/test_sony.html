@@ -1,0 +1,10 @@
+{% if request.user.is_authenticated %}
+<h1>Testi ustunlikli tamamladynyz</h1>
+<form method="POST" action="{% url 'save-page' j x v topary Dersin_ady Testin_ady %}">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Netije</button>
+</form>
+{% else %}
+{% include 'goLogin.html' %}
+{% endif %}

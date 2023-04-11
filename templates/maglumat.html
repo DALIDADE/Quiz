@@ -29,11 +29,12 @@
       {% load static %}
       {% if request.user.is_authenticated %}
       {% include 'header.html' %}
-      {% for A1 in Maglumatlar %}
+     
     <div class="container" style="height: auto;">
-      <div class="login-content">
+      <div class="login-content"> 
         <div class="main" style="height: auto;width: 900px;">
           <h2 class="title" style="margin-bottom: 40px;">MUGALLYM BOLUMINE HOS GELDINIZ</h2>
+          {% for A1 in Maglumatlar %}
           <table>
             <tr>
               <th>T.B</th>
@@ -45,11 +46,11 @@
               <th>TESTI POZMAK</th>
             </tr>
             <tr class="extra">
-              <th>1</th>
+              <th>{{A1.id}}</th>
               <th>{{A1.Sapagyn_ady}}</th>
               <th>{{A1.Testin_ady}}</th>
               <th>
-                <a href="{% url 'testuytgetmek-page' 1 %}"><button 
+                <a href="{% url 'testuytgetmek-page' A1.id %}"><button 
                     style="border:none; 
                       height: 30px;
                       padding: 5px; 
@@ -61,7 +62,7 @@
                       cursor: pointer;">TESTI UYTGETMEK</button></a>
               </th>
               <th>
-                <a href="{% url 'statistika-page' %}"><button 
+                <a href="{% url 'statistika-page' A1.Testin_ady %}"><button 
                     style="border:none; 
                       height: 30px;
                       padding: 5px; 
@@ -73,7 +74,7 @@
                       cursor: pointer;">STATISTIKANY GORMEK</button></a>
               </th>
               <th>
-              <a href="{% url 'tetpozmak-page' %}"><button 
+              <a href="{% url 'tetpozmak-page' A1.id %}"><button 
               style="border:none; 
                 height: 30px;
                 padding: 5px; 
@@ -86,12 +87,13 @@
               </th>
             </tr>
           </table>
+          {%endfor%}
         </div>
       </div>
     </div>
   </body>
 </html>
-{%endfor%}
+
 {% else %}
 {% include 'goLogin.html' %}
 {% endif %}

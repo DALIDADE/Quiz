@@ -1,34 +1,94 @@
-   {% load static %}
+{% load static %}
+{% if request.user.is_authenticated %}
+  {% include 'header.html' %} 
+ 
+ <div class="container" style="height: auto;">
+  
+      {% for i in testler %}  
+
+      <div class="login-content">
+        <div class="main" style="height: auto;width: 900px;"> 
+          <h2 class="title">TESTI UYTGET N:{{i.id}}</h2>
+        <input name="w1" id="" type="submit" value="{{i.Soragy}}" style="overflow: scroll;">
+        <input name="w2" id="" value="{{i.a}}">
+        <input name="w3" id="" value="{{i.b}}">
+        <input name="w4" id="" value="{{i.c}}">
+        <input name="w4" id="" value="{{i.dogry}}">
+        <div class="in_btn">
+        <a href="{% url 'testuytgetmek2-page' i.Soragy %}"><button type="submit" class="btn">DUZMEK</button></a>
+      </div>
+        
+       
+        
+       
+      
+      
+      
+        </div>
+      </div>
+      {% endfor %}
+    </form>
+    </div>
+  </body>
+</html> 
+{% else %}
+{% include 'goLogin.html' %}
+{% endif %}
+
+  
+  
+  <!-- {% load static %}
    {% if request.user.is_authenticated %}
     {% include 'header.html' %}
     <body>
-    <div class="container" style="height: auto;">
-      <div class="login-content">
-        <div class="main" style="height: auto;width: 900px;">
-          <h2 class="title">Testin maglumatlaryny uytgetmek</h2>
-
-      <div class="input_create">
-        <p>SORAGYN TEKSTI</p>
-        <p style="text-align: left;text-transform: none;">sorag No1</p>
-        <input type="text" class="input">
-      </div>
-      <div class="input_create">
-        <input type="text" class="input" placeholder="a.dogry jogap">
-      </div>
-      <div class="input_create">
-        <input type="text" class="input" placeholder="b.yalnys jogap">
-      </div>
-      <div class="input_create">
-        <input type="text" class="input" placeholder="c.yalnys jogap">
-      </div>
-      <div class="in_btn">
-      <a href="{% url 'mugallym-page' %}"><button class="btn">uytgetmek</button></a>
-      </div>
+      {% for i in testler %}
+        <div class="container" style="height: auto;">
+          <div class="login-content">
+            <div class="main" style="height: auto;width: 900px;">
+              <h2 class="title" style="margin-bottom: 40px;">UYTGETJEK TESTINI SAYLA</h2>
+              <table>
+                <tr>
+                  <th>T.B</th>
+                  <th class="">TESTIN SORAGY</th>
+                  <th></th>
+                </tr>
+                <tr class="extra">
+                  <th>{{i.id}}</th>
+                  <th><textarea class="sorag" name="" id="" cols="30" rows="10">{{i.Soragy}}</textarea></th>
+                  <th class="button">
+                   <a href="{% url 'testuytgetmek2-page' i.id %}">
+                    <button class="first"
+                  style="border:1px solid #2d1eff; 
+                  height: 30px;
+                  padding: 5px; 
+                  background: #2d1eff;
+                  border-radius: 5px;
+                  width: 120px;
+                  font-size: 0.9em;
+                  text-transform: uppercase;
+                  cursor: pointer;
+                  color: white;">UYTGET</button></a>
+                  </th>
+                </tr>
+              </table>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+        {% endfor %}
+  <style>
+  .kn {
+    width: 70px;
+}
+.sorag{
+  border: none;
+  font-size: 20px;
+  display: inline-block;
+    width: 700px;
+    height: 40px;
+}
+</style>
   </body>
 </html>
 {% else%}
 {% include 'goLogin.html' %}
-{% endif %}
+{% endif %} -->

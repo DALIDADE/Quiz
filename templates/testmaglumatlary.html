@@ -1,29 +1,29 @@
- {% load static %}
- {% if request.user.is_authenticated %}
-    {% include 'header.html' %}
-  <body>
-    <div class="container" style="height: auto;">
-      <form method="POST">
-        
-        {% csrf_token %}
-        
-      <div class="login-content">
-        <div class="main" style="height: auto;width: 900px;">
-          <h2 class="title">Testin maglumatlaryny girizin</h2>
-          {% for i in form %}
-          <div class="input_create">
-        <label for="room-name">{{i.label}}</label>
-        {{i}}
-      </div>
-      {% endfor %}
-      <div class="in_btn">
-          <a href="{% url 'testgosmak-page' %}"><button class="btn">DUZMEK</button></a>
-      </div>
-        </div>
-      </div>
-    </form>
-    </div>
-  </body>
+{% load static %}
+{% if request.user.is_authenticated %}
+   {% include 'header.html' %}
+ <body>
+   <div class="container" style="height: auto;">
+     <form method="POST">
+       
+       {% csrf_token %}
+       
+     <div class="login-content">
+       <div class="main" style="height: auto;width: 900px;">
+         <h2 class="title">Testin maglumatlaryny girizin</h2>
+         {% for i in form %}
+         <div class="input_create">
+       <label for="room-name">{{i.label}}</label>
+       {{i}}
+     </div>
+     {% endfor %}
+     <div class="in_btn">
+         <a href="{% url 'testmaglumatlary-page' user.id %}"><button class="btn">DUZMEK</button></a>
+     </div>
+       </div>
+     </div>
+   </form>
+   </div>
+ </body>
 </html>
 
 {% else %}

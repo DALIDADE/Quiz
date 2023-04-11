@@ -1,4 +1,4 @@
-select {
+.input_create select{
     display: block;
     margin-top: 10px;
     width: 100%;
@@ -32,4 +32,8 @@ label {
     color: #555;
     text-align: center;
     border: 2px solid blue;
+}
+.button:hover{
+    background: #2d1eff;
+    color: white;
 }

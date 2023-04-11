@@ -10,7 +10,6 @@ class Property(admin.ModelAdmin):
         model = TestMaglumatlary
 
 admin.site.register(TestMaglumatlary,Property)
-
 admin.site.register(Sapaklar)
 admin.site.register(Toparlar)
 

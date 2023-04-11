@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Portal</title>
+  <link rel="shortcut icon" href="{% static 'img/logo.png' %}" type="png">
+  <link rel="stylesheet" href="{% static 'css/page.css' %}">
+</head>
+<body>
+  <div id="select" class="select">
+    <button>home</button>
+    <button>page</button>
+    <button>about</button>
+  </div>
+    <div class="main">
+      <nav>
+        <div class="logo">
+          <img src="{% static 'img/logo.png' %}" alt="png">
+          <h2>Quiz Portal</h2> 
+        </div>
+        <div id="header">
+        <button onclick="button1()">esasy</button>
+        <a href="{% url 'netije-page' %}"><button onclick="button2()">netije</button></a>
+        <button onclick="button3()">kitaphana</button>
+        <a href="{% url 'logout-page' %}">
+          <button onclick="">
+            Logout
+          </button>
+        </a>
+        </div>
+        <div class="onclick" id="g">
+          <button onclick="button()">
+            menu
+          </button>
+        </div>
+      </nav>

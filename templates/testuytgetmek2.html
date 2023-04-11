@@ -1,0 +1,39 @@
+{% load static %}
+{% if request.user.is_authenticated %}
+  {% include 'header.html' %} 
+ 
+ <div class="container" style="height: auto;">
+      <form method="POST">
+        
+        {% csrf_token %}
+{% for i in testler %}
+
+      <div class="login-content">
+        <div class="main" style="height: auto;width: 900px;">
+          <h2 class="title">TESTI UYTGET</h2>
+        <input name="w1" id="" value="{{i.Soragy}}">
+        <input name="w2" id="" value="{{i.a}}">
+        <input name="w3" id="" value="{{i.b}}">
+        <input name="w4" id="" value="{{i.c}}">
+        <input name="w4" id="" value="{{i.dogry}}">
+        <div class="in_btn">
+        <a href="{url 'testuytgetmek2-page'}"><button class="btn">DUZMEK</button></a>
+        
+      </div>
+        
+    
+       
+      
+      
+      
+        </div>
+        
+      </div>
+      {% endfor %}
+    </form>
+    </div>
+  </body>
+</html> 
+{% else %}
+{% include 'goLogin.html' %}
+{% endif %}

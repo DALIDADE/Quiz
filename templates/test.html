@@ -1,0 +1,29 @@
+{% if request.user.is_authenticated %}
+{% load static %}
+{% include 'header2.html'  %}
+
+<div class="box">
+<div class="container" class="con2"  id="knopka">
+ {% for j in TestMaglumaty2 %}
+  <h2>Testin ady:{{j.Testin_ady}}</h2>
+                                <h2>Topar:{{j.Topar}}</h2>
+                                 <h2>Sorag Sany:{{j.Sorag_sany}}
+                                </h2><h2>Testin Wagty:{{j.Wagyt_limidi}}:min</h2>
+  {% endfor %}
+  {% for i in p %}
+<form method="POST" action="{% url 'test2-page' j id v x%}">
+  {% csrf_token %}
+  <h2>sorag n:{{k}}
+  <p>{{i.Soragy}}</p>
+  <button class="jogap" onclick="a()" id="a" name="a" value="{{i.a}}">a: {{i.a}}</button>
+  <button class="jogap" onclick="b()" id="b" name="b" value="{{i.b}}">b: {{i.b}}</button>
+  <button class="jogap" onclick="c()" id="c" name="c" value="{{i.c}}">c: {{i.c}}</button>
+</form>
+  {% endfor %}
+</div>
+<script src="{% static  'js/page.js' %}"></script>
+</body>
+</html>
+{% else %}
+{% include 'goLogin.html' %}
+{% endif %}

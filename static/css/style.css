@@ -19,7 +19,9 @@ body{
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-direction: column;
 }
+
 
 .login-content{
 	display: flex;
@@ -376,3 +378,4 @@ button:hover{
 	color:  #2d1eff;
 	text-transform: uppercase;
 }
+

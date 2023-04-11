@@ -1,0 +1,47 @@
+{% if request.user.is_authenticated %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="container" class="con2" style="display: block;" id="con2">
+        <h2>netijeler</h2>
+        {% for i in Netije %}
+        <table style="width: 90%;margin: 0px 5% 0px 5%;">
+          <tbody>
+            <tr>
+              <th>t.n</th>
+              <th>Sapagyň ady</th>
+              <th>Testin ady</th>
+              <th>Sorag sany</th>
+              <th>Dogry sany</th>
+              <th>Yalnys sany</th>
+              <th>Dogry sany</th>
+              <th>Baly</th>
+              <th>Talyp</th>
+            </tr>
+            <tr class="extra">
+              <th>{{i.id}}</th>
+              <th>{{i.Dersin_ady}}</th>
+              <th>{{i.Testin_ady}}</th>
+              <th>{{i.Sorag_sany}}</th>
+              <th>{{i.Dogry_sany}}</th>
+              <th>{{i.Yalnys_sany}}</th>
+              <th>{{i.Dogry_sany}}</th>
+              <th>{{i.Bahasy}}</th>
+              <th>{{i.user}}</th>
+            </tr>
+          </tbody> 
+        </table>
+        {% endfor %}
+      </div>
+</body>
+</html>
+{% else %}
+{% include 'goLogin.html' %}
+{% endif %}
